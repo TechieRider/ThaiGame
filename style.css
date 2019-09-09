@@ -16,3 +16,39 @@
 .dices {
     margin-top:300px;
 }
+
+#dice1 {
+    height: 250px;
+    width: 550px;
+}
+
+#test {
+    height: 150px;
+    width: 150px;
+}
+
+.dice-container {
+    height: 100px;
+    width: 100px;
+    margin-right: 50px;
+}
+
+.dice-1{
+    background-image: url(./dice-1.png);
+    background-size: contain;
+}
+
+.dice-2{
+    background-image: url(./dice-2.png);
+    background-size: contain;
+}
+
+.dice-3{
+    background-image: url(./dice-3.png);
+    background-size: contain;
+}
+
+.dice-4 {
+    background-image: url(./dice-4.png);
+    background-size: contain;
+}
