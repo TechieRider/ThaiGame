@@ -129,7 +129,7 @@
             newArray = board;
             diceIsRolled = false;
             document.getElementById("playBtn").disabled = false;
-            renderBoard();
+            emptyBoard();
         }
         
     }
