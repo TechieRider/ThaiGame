@@ -1,0 +1,16 @@
+.tile {
+    width: 200px;
+    display: inline-block;
+    cursor: not-allowed;
+}
+
+.tiled {
+    border: green 1px solid;
+    width: 200px;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.dices {
+    margin-top:300px;
+}
