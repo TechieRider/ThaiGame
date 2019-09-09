@@ -1,26 +1,22 @@
 
-    const board = [{id:1, value: 1},{id:2, value: 2}, {id:3, value: 3}, {id:4, value: 4}, {id:5, value: 5}, {id:6, value: 6}, {id:7, value: 7}, {id: 8, value:8}, {id: 9, value: 9}, {id: 10, value: 10}]
+    const board = [{id:1, value: 1},{id:2, value: 2}, {id:3, value: 3}, {id:4, value: 4}, {id:5, value: 5}, {id:6, value: 6}, {id:7, value: 7},{id:8, value: 8},{id:9, value: 9},{id:10, value: 10}]
     let diceResults = [];
-    let playableNumbers = [];
     let tileArray = [];
+    let diceIsRolled = false;
     const diff = (a, b) => b.filter((i) => a.indexOf(i) === -1);
     
     function randomNumber(){
         document.getElementById('instructionalLabel').innerHTML = 'Välj bricka';
+        document.getElementById("playBtn").disabled = true;
         diceResults = [];
-        playableNumbers = [];
         var x = Math.floor((Math.random() * 6) + 1);
         document.getElementById("dice1").innerHTML = x;
         diceResults.push(x);
-        playableNumbers.push(x);
 
         var y = Math.floor((Math.random() * 6) + 1);
         document.getElementById("dice2").innerHTML = y;
         diceResults.push(y);
-        playableNumbers.push(y);
-
-        playableNumbers.push(x + y)
-       
+        diceIsRolled = true;
         renderBoard();
     }
 
@@ -34,7 +30,7 @@
         document.getElementById('instructionalLabel').innerHTML = 'Slå tärningen';
         var boardString = [];
          for(var i = 1; i < board.length + 1; i++){
-                boardString.push('<div id=' + board[i -1].value + ' onclick="choosenTile(this.id)" class="tile"> ' + board[i - 1].value +' </div>')     
+                boardString.push('<div id=' + board[i -1].value + ' class="tile"> ' + board[i - 1].value +' </div>')     
         }
                 
         boardStringify = boardString.join(' ');
@@ -61,7 +57,7 @@
                 boardString.push('<div id=' + board[i].value + '  class="tile"> ' + board[i].value +' </div>')
             }
        }
-       if(maxInt == 0){
+       if(maxInt == 0 && diceIsRolled){
            console.log('Game over')
            document.getElementById('instructionalLabel').innerHTML = 'Game over!';
        }
@@ -82,6 +78,14 @@
             var obj = {id: (i + 1), value: board[i].value}
             newArray.push(obj);
         }
-        newArray = board;
-        renderBoard();
+        if(newArray.length == 0){
+            renderBoard();
+            document.getElementById('instructionalLabel').innerHTML = 'Grattis, du har vunnit';
+        } else {
+            newArray = board;
+            diceIsRolled = false;
+            document.getElementById("playBtn").disabled = false;
+            renderBoard();
+        }
+        
     }

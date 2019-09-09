@@ -2,6 +2,7 @@
     width: 200px;
     display: inline-block;
     cursor: not-allowed;
+    text-align: center;
 }
 
 .tiled {
@@ -9,6 +10,7 @@
     width: 200px;
     display: inline-block;
     cursor: pointer;
+    text-align: center;
 }
 
 .dices {
