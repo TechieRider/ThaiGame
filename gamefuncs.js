@@ -8,16 +8,12 @@
     function randomNumber(){
         document.getElementById('instructionalLabel').innerHTML = 'Välj bricka';
         document.getElementById("playBtn").disabled = true;
-        document.querySelectorAll('.dice-container').forEach(function(a){
-            a.remove()
-            })
+        document.querySelectorAll('.dice-container').forEach(function(a){ a.remove() })
         diceResults = [];
         var x = Math.floor((Math.random() * 6) + 1);
-        //document.getElementById("dice1").innerHTML = x;
         diceResults.push(x);
 
         var y = Math.floor((Math.random() * 6) + 1);
-        //document.getElementById("dice2").innerHTML = y;
         diceResults.push(y);
         showDices(x, y);
         diceIsRolled = true;
@@ -25,11 +21,10 @@
     }
 
     function showDices(firstDice, secondDice){
-        
-        console.log(firstDice, secondDice)
         var diceImgUrl1 = getDiceUrl(firstDice)
         var diceImgUrl2 = getDiceUrl(secondDice)
         var el = document.querySelector("#dice1")
+
         var img1 = document.createElement("img");
         img1.setAttribute('src', diceImgUrl1);
         img1.className = "dice-container"
@@ -39,29 +34,10 @@
         img2.setAttribute('src', diceImgUrl2);
         img2.className = "dice-container"
         el.appendChild(img2)
-
     }
 
     function getDiceUrl(die) {
-        switch (die) {
-            case 1:
-                diceImgUrl = "dice-1.png";
-                break;
-            case 2:
-                diceImgUrl = "dice-2.png";
-                break;
-            case 3:
-                diceImgUrl = "dice-3.png";
-                break;
-            case 4:
-                diceImgUrl = "dice-4.png";
-                break;
-            case 5:
-                diceImgUrl = "dice-5.png";
-                break;
-            case  6:
-                diceImgUrl = "dice-6.png";
-            }
+        diceImgUrl = 'dice-' + die + '.png';
             return diceImgUrl;
     }
     
@@ -75,17 +51,13 @@
         var boardString = [];
          for(var i = 1; i < board.length + 1; i++){
                 boardString.push('<div id=' + board[i -1].value + ' class="tile"> ' + board[i - 1].value +' </div>')     
-        }
-                
-        boardStringify = boardString.join(' ');
-        document.getElementById("board").innerHTML = boardStringify.toString();
+        }  
+        document.getElementById("board").innerHTML = boardString.toString();
     }
 
     function createTileArray(){
         tileArray = [];
-        for(var i = 0; i < board.length; i++){
-            tileArray.push(board[i].value)
-        }
+        for(var i = 0; i < board.length; i++){ tileArray.push(board[i].value)  }
     }
     
     function renderBoard(){
@@ -101,10 +73,7 @@
                 boardString.push('<div id=' + board[i].value + '  class="tile"> ' + board[i].value +' </div>')
             }
        }
-       if(maxInt == 0 && diceIsRolled){
-           console.log('Game over')
-           document.getElementById('instructionalLabel').innerHTML = 'Game over!';
-       }
+       if(maxInt == 0 && diceIsRolled){ document.getElementById('instructionalLabel').innerHTML = 'Game over!'; }
         boardStringify = boardString.join(' ');
         document.getElementById("board").innerHTML = boardStringify.toString();
     }
@@ -113,11 +82,8 @@
         document.getElementById('instructionalLabel').innerHTML = 'Slå tärningen';
         var newArray = [];
         for(var i = 0; i < board.length; i++){
-            if(board[i].value == tile) {
-                board.splice(i, 1)
-            }
+            if(board[i].value == tile) { board.splice(i, 1) }
         }
-        
         for(var i = 0; i < board.length; i++){
             var obj = {id: (i + 1), value: board[i].value}
             newArray.push(obj);
@@ -131,5 +97,4 @@
             document.getElementById("playBtn").disabled = false;
             emptyBoard();
         }
-        
     }
