@@ -1,6 +1,21 @@
 body {
-    background-image: url('https://www.pabonforcolorado.com/thumbnail/carpet0024-free-background-texture-carpet-fabric-floor-wallpaper-texture-red-carpet-rug-background_w_7012-17.jpg');
+    background-image: url('./bg.jpg');
     background-size: contain;
+    width:100vw;
+    overflow:hidden;
+}
+
+.btn {
+    background:    #ffffff;
+    border-radius: 5px;
+    padding:       8px 20px;
+    color:         #ff0000;
+    display:       inline-block;
+    font:          normal bold 24px/1 "Calibri", sans-serif;
+    text-align:    center;
+    text-shadow:   1px 1px #ffffff;
+    margin-top:    20px;
+    margin-left:   20px;
 }
 
 .tile {
@@ -27,6 +42,10 @@ body {
     margin-top:100px;
 }
 
+#boardContainer {
+    width:100%;
+}
+
 #dice1 {
     height: 250px;
     width: 550px;
@@ -39,7 +58,8 @@ body {
 
 #instructionalLabel {
     color: white;
-    font-size: 25px;
+    font-size: 35px;
+    margin-left:20px;
 }
 
 .dice-container {
@@ -67,3 +87,12 @@ body {
     background-image: url(./dice-4.png);
     background-size: contain;
 }
+
+@media only screen and (max-width: 688px) {
+    .tile{
+      margin-left: 20%;
+    }
+    .tiled {
+        margin-left:20%;
+    }
+  }

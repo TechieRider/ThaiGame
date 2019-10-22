@@ -3,8 +3,11 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Thai Game</title>
+  <title>Shut The Box</title>
   <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="icon" 
+      type="image/png" 
+      href="/favicon.ico" />
   <script src="gamefuncs.js"></script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-147615803-2"></script>
@@ -19,12 +22,13 @@
 </head>
 <body>
  <div>
-        <button id="playBtn" onclick="randomNumber()">Tärning</button>
-        <button id="playAgainBtn" onclick="location.reload()">Spela igen</button>
+        <button id="playBtn" class="btn" onclick="randomNumber()">Tärning</button>
+        <button id="playAgainBtn" class="btn" onclick="location.reload()">Spela igen</button>
  </div>
  <p id="instructionalLabel"> </p>
-
-<p id="board" style="font-size: 30px;"></p>
+<div id="boardContainer">
+    <p id="board" style="font-size: 30px;"></p>
+</div>
 
 <div class="dices">
     <div id="dice1"></div>

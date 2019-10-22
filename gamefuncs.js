@@ -52,7 +52,7 @@
          for(var i = 1; i < board.length + 1; i++){
                 boardString.push('<div id=' + board[i -1].value + ' class="tile"> ' + board[i - 1].value +' </div>')     
         }  
-        document.getElementById("board").innerHTML = boardString.toString();
+        document.getElementById("board").innerHTML = boardString.toString().replace(/,/g, ' ');
     }
 
     function createTileArray(){
@@ -75,7 +75,7 @@
        }
        if(maxInt == 0 && diceIsRolled){ document.getElementById('instructionalLabel').innerHTML = 'Game over!'; }
         boardStringify = boardString.join(' ');
-        document.getElementById("board").innerHTML = boardStringify.toString();
+        document.getElementById("board").innerHTML = boardStringify.toString().replace(/,/g, '');
     }
 
     function choosenTile(tile){
