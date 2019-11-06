@@ -2,7 +2,7 @@ body {
     background-image: url('./bg.jpg');
     background-size: contain;
     width:100vw;
-    overflow:hidden;
+    overflow-x:hidden;
 }
 
 .btn {
@@ -60,6 +60,14 @@ body {
     color: white;
     font-size: 35px;
     margin-left:20px;
+}
+
+#infoicon {
+    height: 45px;
+    width: 45px;
+    margin-left:50px;
+    margin-top:15px;
+    cursor: pointer;
 }
 
 .dice-container {
